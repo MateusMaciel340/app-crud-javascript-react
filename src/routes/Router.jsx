@@ -1,5 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+// Header
+import Header from "../components/Header/Header";
+
 // Security
 import {
     RoutePrivate, RoutePrivateLogin
@@ -13,9 +16,12 @@ const Routers = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/"
-                    element={<RoutePrivateLogin><Login/></RoutePrivateLogin>} />
-                <Route path="/home"
-                    element={<RoutePrivate><Home /></RoutePrivate>} />
+                    element={<RoutePrivateLogin><Login /></RoutePrivateLogin>} />
+
+                <Route path="/" element={<RoutePrivate><Header/></RoutePrivate>}>
+                    <Route path="/home"
+                        element={<RoutePrivate><Home/></RoutePrivate>} />
+                </Route>
             </Routes>
         </BrowserRouter>
     );
