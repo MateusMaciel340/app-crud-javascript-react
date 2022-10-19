@@ -14,3 +14,13 @@ export const LoginUser = async (data) => {
         return "Os seus dados foram inseridos corretamente?";
     }
 }
+
+export const ShowUser = async () => {
+    try {
+        const response = await api.get("/listingUser");
+
+        return response.data;
+    } catch (error) {
+        return "Ocorreu algum erro, verifique com a administração!";
+    }
+}
