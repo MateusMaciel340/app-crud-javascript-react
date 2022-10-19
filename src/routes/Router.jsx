@@ -10,18 +10,19 @@ import {
 
 import Login from "../components/Login/Login";
 import Home from "../components/Home/Home";
+import Users from "../components/Users/Users";
 
 const Routers = () => {
     return (
         <BrowserRouter>
+            <Header/>
             <Routes>
                 <Route path="/"
-                    element={<RoutePrivateLogin><Login /></RoutePrivateLogin>} />
-
-                <Route path="/" element={<RoutePrivate><Header/></RoutePrivate>}>
-                    <Route path="/home"
-                        element={<RoutePrivate><Home/></RoutePrivate>} />
-                </Route>
+                    element={<RoutePrivateLogin><Login/></RoutePrivateLogin>}/>
+                <Route path="/home"
+                        element={<RoutePrivate><Home/></RoutePrivate>}/>
+                <Route path="/users"
+                        element={<RoutePrivate><Users/></RoutePrivate>}/>
             </Routes>
         </BrowserRouter>
     );

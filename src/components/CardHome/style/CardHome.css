@@ -1,0 +1,10 @@
+.style-card-home {
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.style-card-home img {
+    margin-top: 19px;
+    width: 200px;
+    margin-left: 40px;
+}
