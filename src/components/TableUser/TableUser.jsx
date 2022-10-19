@@ -1,6 +1,22 @@
+import { useState, useEffect } from "react";
+
 import "./style/TableUser.css";
+import { ShowUser } from "../../services/users/ApiUsers";
 
 const TableUser = () => {
+
+    const [user, setUser] = useState([]);
+
+    const getShowUser = async () => {
+        const response = await ShowUser();
+
+        setUser(response);
+    }
+
+    useEffect(() => {
+        getShowUser()
+    }, []);
+
     return (
         <table className="table table-hover text-center table-responsive">
             <thead>
@@ -12,23 +28,25 @@ const TableUser = () => {
             </thead>
 
             <tbody>
-                <tr>
-                    <th scope="row">001</th>
-                    <td>mateusmaciel340</td>
-                    <td className="separation-button">
-                        <button className="btn btn-secondary">
-                            <i className="fa fa-eye"></i>
-                        </button>
+                {user.map((user, index) => (
+                    <tr key={index}>
+                        <th scope="row">00{index + 1}</th>
+                        <td>{user.username}</td>
+                        <td className="separation-button">
+                            <button className="btn btn-secondary">
+                                <i className="fa fa-eye"></i>
+                            </button>
 
-                        <button className="btn btn-primary">
-                            <i className="fa fa-edit"></i>
-                        </button>
+                            <button className="btn btn-primary">
+                                <i className="fa fa-edit"></i>
+                            </button>
 
-                        <button className="btn btn-danger">
-                            <i className="fa fa-trash"></i>
-                        </button>
-                    </td>
-                </tr>
+                            <button className="btn btn-danger">
+                                <i className="fa fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                ))}
             </tbody>
         </table>
     );
