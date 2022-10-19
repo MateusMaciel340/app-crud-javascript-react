@@ -10,7 +10,9 @@ import {
 
 import Login from "../components/Login/Login";
 import Home from "../components/Home/Home";
+
 import Users from "../components/Users/Users";
+import ViewUser from "../components/Users/ViewUser/ViewUser";
 
 const Routers = () => {
     return (
@@ -18,11 +20,31 @@ const Routers = () => {
             <Header/>
             <Routes>
                 <Route path="/"
-                    element={<RoutePrivateLogin><Login/></RoutePrivateLogin>}/>
+                    element={
+                        <RoutePrivateLogin>
+                            <Login/>
+                        </RoutePrivateLogin>}/>
+                
                 <Route path="/home"
-                        element={<RoutePrivate><Home/></RoutePrivate>}/>
+                    element={
+                        <RoutePrivate>
+                            <Home/>
+                        </RoutePrivate>} />
+                
+                { /* all about users */ }
+                
                 <Route path="/users"
-                        element={<RoutePrivate><Users/></RoutePrivate>}/>
+                    element={
+                        <RoutePrivate>
+                            <Users/>
+                        </RoutePrivate>} />
+                
+                <Route path="/users/:id"
+                    element={
+                        <RoutePrivate>
+                            <ViewUser/>
+                        </RoutePrivate>
+                    }/>
             </Routes>
         </BrowserRouter>
     );

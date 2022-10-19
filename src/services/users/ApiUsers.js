@@ -24,3 +24,14 @@ export const ShowUser = async () => {
         return "Ocorreu algum erro, verifique com a administração!";
     }
 }
+
+export const ShowSearchUser = async () => {
+    try {
+        let id = window.location.pathname.split("/")[2];
+        const response = await api.get(`/searchingUser/${id}`);
+
+        return response.data;
+    } catch (error) {
+        return "Ocorreu algum erro, verifique com a administração!";
+    }
+}
