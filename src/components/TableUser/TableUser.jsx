@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import "./style/TableUser.css";
 import { ShowUser } from "../../services/users/ApiUsers";
@@ -33,9 +34,11 @@ const TableUser = () => {
                         <th scope="row">00{index + 1}</th>
                         <td>{user.username}</td>
                         <td className="separation-button">
-                            <button className="btn btn-secondary">
-                                <i className="fa fa-eye"></i>
-                            </button>
+                            <Link to={`/users/${user.id}`}>
+                                <button className="btn btn-secondary">
+                                    <i className="fa fa-eye"></i>
+                                </button>
+                            </Link>
 
                             <button className="btn btn-primary">
                                 <i className="fa fa-edit"></i>
