@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const CardHome = (props) => {
     return (
-        <div className="col-md-4 style-card-home text-center">
+        <div className="col-md-4 style-card-general text-center">
             <div className="card" style={{ width: "18rem" }}>
                 <img src={props.logo} className="card-img-top" alt="image" />
 
