@@ -1,15 +1,16 @@
-import { Link } from "react-router-dom";
+import CardHome from "../CardHome/CardHome";
+import LogoUser from "../../assets/users-logo.png";
 
 const Home = () => {
-
-    const Logout = () => {
-        window.location.reload(localStorage.clear());
-    }
-
     return (
-        <div>
-            <Link to="/"
-                onClick={Logout}>Sair</Link>
+        <div className="container">
+            <div className="row">
+                <CardHome
+                    logo={LogoUser}
+                    title="Usuários"
+                    routerCard="/users"
+                />
+            </div>
         </div>
     );
 }
