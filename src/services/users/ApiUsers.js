@@ -35,3 +35,18 @@ export const ShowSearchUser = async () => {
         return "Ocorreu algum erro, verifique com a administração!";
     }
 }
+
+export const EditingUser = async (data) => {
+    try {
+        let id = window.location.pathname.split("/")[2];
+        const response = await api.put(`/updatedUser/${id}`, data);
+
+        setTimeout(function () {
+            window.location.href = "/users";
+        }, 2000);
+
+        return "Dados atualizados com sucesso!";
+    } catch (error) {
+        return "Ocorreu algum problema em sua atualização!";
+    }
+}
