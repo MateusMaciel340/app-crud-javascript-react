@@ -40,9 +40,11 @@ const TableUser = () => {
                                 </button>
                             </Link>
 
-                            <button className="btn btn-primary">
-                                <i className="fa fa-edit"></i>
-                            </button>
+                            <Link to={`/edit-users/${user.id}`}>
+                                <button className="btn btn-primary">
+                                    <i className="fa fa-edit"></i>
+                                </button>
+                            </Link>
 
                             <button className="btn btn-danger">
                                 <i className="fa fa-trash"></i>
