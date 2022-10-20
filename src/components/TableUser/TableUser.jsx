@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import "./style/TableUser.css";
 import { ShowUser } from "../../services/users/ApiUsers";
 
+import api from "../../services/api";
+
 const TableUser = () => {
 
     const [user, setUser] = useState([]);
@@ -14,8 +16,14 @@ const TableUser = () => {
         setUser(response);
     }
 
+    const deleteUser = async (id) => {
+        await api.delete(`removeUser/${id}`);
+
+        setUser(user.filter(user => user.id !== id));
+    }
+
     useEffect(() => {
-        getShowUser()
+        getShowUser();
     }, []);
 
     return (
@@ -46,7 +54,9 @@ const TableUser = () => {
                                 </button>
                             </Link>
 
-                            <button className="btn btn-danger">
+                            <button
+                                className="btn btn-danger"
+                                onClick={() => deleteUser(user.id)}>
                                 <i className="fa fa-trash"></i>
                             </button>
                         </td>
