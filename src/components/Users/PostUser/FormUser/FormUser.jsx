@@ -23,13 +23,13 @@ const FormUserPost = () => {
                 <div className="col-md-12">
                     <label
                         htmlFor="username"
-                        className="form-label">Image</label>
+                        className="form-label">Foto</label>
 
                     <input type="text"
                         className="form-control"
                         id="img"
                         aria-describedby="img"
-                        placeholder="Digite um imagem"
+                        placeholder="Digite a url de uma imagem"
                         onChange={(e) => setImg(e.target.value)}
                         required />
                 </div>
