@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import "../CardHome/style/CardHome.css";
 
 import TableUser from "../TableUser/TableUser";
 

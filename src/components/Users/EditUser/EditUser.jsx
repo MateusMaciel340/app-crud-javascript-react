@@ -1,5 +1,3 @@
-import "../../CardHome/style/CardHome.css";
-
 import FormUserEdit from "./FormUser/FormUser";
 
 const EditUser = () => {
