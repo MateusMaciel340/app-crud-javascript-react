@@ -4,7 +4,7 @@ export const LoginUser = async (data) => {
     try {
         const response = await api.post("/login", data);
 
-        localStorage.setItem("token", data);
+        localStorage.setItem("token", response.data);
         setTimeout(function () {
             window.location.href = "/home";
         }, 2500);
@@ -62,5 +62,15 @@ export const PostingUser = async (data) => {
         return "Dados cadastrados com sucesso!";
     } catch (error) {
         return "Não foi possível adicionar um novo usuário"
+    }
+}
+
+export const AuthenticatedUser = async () => {
+    try {
+        const response = await api.get("/authUser");
+
+        return response.status;
+    } catch (error) {
+        return error.response.status;
     }
 }
