@@ -26,9 +26,9 @@ const ViewUser = () => {
                     <div className="card">
                         {user.map((users, index) => (
                             <div className="card-body" key={index}>
+                                <img src={users.img}/><hr/>
                                 <h3>Id: {users.id}</h3><hr/>
-                                <h3>Username: {users.username}</h3><hr/>
-                                <h3>Dados de criação: {users.createdAt}</h3>
+                                <h3>Username: {users.username}</h3>
                             </div>
                         ))}
                     </div>
