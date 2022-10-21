@@ -7,14 +7,14 @@ const FormUserEdit = () => {
     const [user, setUser] = useState([]);
 
     const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+    const [img, setImg] = useState("");
     const [message, setMessage] = useState("");
 
     const getSearchingUser = async () => {
         const response = await ShowSearchUser();
 
         setUsername(response[0].username);
-        setPassword(response[0].password);
+        setImg(response[0].img);
 
         setUser(response);
     }
@@ -22,7 +22,7 @@ const FormUserEdit = () => {
     const UpdatedUser = async (event) => {
         event.preventDefault();
 
-        const data = { username: username, password: password };
+        const data = { username: username, img: img };
         const response = await EditingUser(data);
 
         setMessage(response);
@@ -37,6 +37,21 @@ const FormUserEdit = () => {
             <div className="row">
                 <div className="col-md-6">
                     <label
+                        htmlFor="password"
+                        className="form-label">Foto</label>
+
+                    <input type="text"
+                        className="form-control"
+                        id="foto"
+                        aria-describedby="foto"
+                        placeholder="Digite a url da sua foto"
+                        onChange={(e) => setImg(e.target.value)}
+                        value={img}
+                        required />
+                </div>
+
+                <div className="col-md-6">
+                    <label
                         htmlFor="username"
                         className="form-label">Username</label>
 
@@ -47,21 +62,6 @@ const FormUserEdit = () => {
                         placeholder="Digite um username"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
-                        required />
-                </div>
-
-                <div className="col-md-6">
-                    <label
-                        htmlFor="password"
-                        className="form-label">Password</label>
-
-                    <input type="password"
-                        className="form-control"
-                        id="password"
-                        aria-describedby="password"
-                        placeholder="Digite uma senha"
-                        onChange={(e) => setPassword(e.target.value)}
-                        value={password}
                         required />
                 </div>
 
