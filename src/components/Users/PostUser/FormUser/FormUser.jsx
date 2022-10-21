@@ -1,40 +1,39 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-import "../../../CardHome/style/CardHome.css";
-import { ShowSearchUser, EditingUser } from "../../../../services/users/ApiUsers";
+import { PostingUser } from "../../../../services/users/ApiUsers";
 
-const FormUserEdit = () => {
-    const [user, setUser] = useState([]);
+const FormUserPost = () => {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [img, setImg] = useState("");
     const [message, setMessage] = useState("");
 
-    const getSearchingUser = async () => {
-        const response = await ShowSearchUser();
-
-        setUsername(response[0].username);
-        setPassword(response[0].password);
-
-        setUser(response);
-    }
-
-    const UpdatedUser = async (event) => {
+    const PostUser = async (event) => {
         event.preventDefault();
-
-        const data = { username: username, password: password };
-        const response = await EditingUser(data);
+        const data = { username: username, password: password, img: img };
+        const response = await PostingUser(data);
 
         setMessage(response);
     }
 
-    useEffect(() => {
-        getSearchingUser()
-    }, [])
-
     return (
         <div className="col-md-12">
             <div className="row">
+                <div className="col-md-12">
+                    <label
+                        htmlFor="username"
+                        className="form-label">Image</label>
+
+                    <input type="text"
+                        className="form-control"
+                        id="img"
+                        aria-describedby="img"
+                        placeholder="Digite um imagem"
+                        onChange={(e) => setImg(e.target.value)}
+                        required />
+                </div>
+
                 <div className="col-md-6">
                     <label
                         htmlFor="username"
@@ -45,7 +44,6 @@ const FormUserEdit = () => {
                         id="username"
                         aria-describedby="username"
                         placeholder="Digite um username"
-                        value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         required />
                 </div>
@@ -53,7 +51,7 @@ const FormUserEdit = () => {
                 <div className="col-md-6">
                     <label
                         htmlFor="password"
-                        className="form-label">Password</label>
+                        className="form-label">Senha</label>
 
                     <input type="password"
                         className="form-control"
@@ -61,14 +59,13 @@ const FormUserEdit = () => {
                         aria-describedby="password"
                         placeholder="Digite uma senha"
                         onChange={(e) => setPassword(e.target.value)}
-                        value={password}
                         required />
                 </div>
 
                 <div className="col-md-4 style-card-general">
                     <button
                         className="btn btn-primary"
-                        onClick={UpdatedUser}>Atualizar</button>
+                        onClick={PostUser}>Cadastrar</button>
                 </div>
 
                 <div className="col-md-12 style-card-general">
@@ -83,4 +80,4 @@ const FormUserEdit = () => {
     );
 }
 
-export default FormUserEdit;
+export default FormUserPost;

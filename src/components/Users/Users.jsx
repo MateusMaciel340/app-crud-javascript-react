@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../CardHome/style/CardHome.css";
 
 import TableUser from "../TableUser/TableUser";
@@ -10,15 +11,17 @@ const Users = () => {
                     <h1>Usuários</h1>
                 </div>
                 <div className="col-md-4 text-center">
-                    <button className="btn btn-primary">
-                        Adicionar novo usuário
-                    </button>
+                    <Link to="/post-users">
+                        <button className="btn btn-primary">
+                            Adicionar novo usuário
+                        </button>
+                    </Link>
                 </div>
 
-                <hr/>
+                <hr />
 
                 <div className="col-md-12">
-                    <TableUser/>
+                    <TableUser />
                 </div>
             </div>
         </div>
