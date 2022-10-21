@@ -1,5 +1,3 @@
-import "../../CardHome/style/CardHome.css";
-
 import FormUserPost from "./FormUser/FormUser";
 
 const PostUser = () => {

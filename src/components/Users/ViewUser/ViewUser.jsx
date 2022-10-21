@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-import "../../CardHome/style/CardHome.css";
 import { ShowSearchUser } from "../../../services/users/ApiUsers";
 
 const ViewUser = () => {
