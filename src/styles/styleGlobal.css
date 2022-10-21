@@ -2,3 +2,14 @@ body {
     padding: 0; margin: 0;
     box-sizing: border-box;
 }
+
+.style-card-general {
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.style-card-general img {
+    margin-top: 19px;
+    width: 200px;
+    margin-left: 40px;
+}
