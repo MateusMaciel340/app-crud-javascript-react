@@ -27,10 +27,13 @@ const TableUser = () => {
     }, []);
 
     return (
-        <table className="table table-hover text-center table-responsive">
+        <table
+            className="table table-hover text-center 
+                table-responsive align-self-center no-wrap mt-3 align-middle">
             <thead>
                 <tr>
                     <th scope="col">#</th>
+                    <th scope="col">Foto</th>
                     <th scope="col">Username</th>
                     <th scope="col">Configuração</th>
                 </tr>
@@ -40,6 +43,9 @@ const TableUser = () => {
                 {user.map((user, index) => (
                     <tr key={index}>
                         <th scope="row">00{index + 1}</th>
+                        <td>
+                            <img src={user.img} style={{ width: "160px" }} />
+                        </td>
                         <td>{user.username}</td>
                         <td className="separation-button">
                             <Link to={`/users/${user.id}`}>
