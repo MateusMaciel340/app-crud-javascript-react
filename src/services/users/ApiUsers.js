@@ -50,3 +50,17 @@ export const EditingUser = async (data) => {
         return "Ocorreu algum problema em sua atualização!";
     }
 }
+
+export const PostingUser = async (data) => {
+    try {
+        const response = await api.post("/addingUser", data);
+
+        setTimeout(function () {
+            window.location.href = "/users";
+        }, 2000);
+
+        return "Dados cadastrados com sucesso!";
+    } catch (error) {
+        return "Não foi possível adicionar um novo usuário"
+    }
+}
