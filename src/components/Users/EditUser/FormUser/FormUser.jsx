@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-
-import "../../../CardHome/style/CardHome.css";
 import { ShowSearchUser, EditingUser } from "../../../../services/users/ApiUsers";
 
 const FormUserEdit = () => {
