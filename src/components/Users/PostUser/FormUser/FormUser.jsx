@@ -34,7 +34,7 @@ const FormUserPost = () => {
                         required />
                 </div>
 
-                <div className="col-md-6">
+                <div className="col-md-6 style-card-general">
                     <label
                         htmlFor="username"
                         className="form-label">Username</label>
@@ -48,7 +48,7 @@ const FormUserPost = () => {
                         required />
                 </div>
 
-                <div className="col-md-6">
+                <div className="col-md-6 style-card-general">
                     <label
                         htmlFor="password"
                         className="form-label">Senha</label>
